@@ -1,10 +1,24 @@
 import React from "react";
+import axios from "axios";
+import "./style.css";
 
 const Home = () => {
-  console.log("welcome");
+  const BASE_URL = "http://localhost:4000";
+  const getAllTodos = async () => {
+    const todos = await axios.get(`${BASE_URL}/todos`);
+    return todos;
+  };
+  getAllTodos();
+
   return (
     <div>
-      <h1>Heme</h1>
+      <ul>
+        {todos.map((todo) => (
+          <div key={todo.id}>
+            <li>{todo.name}</li>
+          </div>
+        ))}
+      </ul>
     </div>
   );
 };
