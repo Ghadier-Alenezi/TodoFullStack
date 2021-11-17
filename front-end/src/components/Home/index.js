@@ -13,11 +13,13 @@ const Home = () => {
   return (
     <div>
       <ul>
-        {todos.map((todo) => (
+        {/* {todos.map((todo) => (
           <div key={todo.id}>
             <li>{todo.name}</li>
+            <button>update</button>
+            <button>delete</button>
           </div>
-        ))}
+        ))} */}
       </ul>
     </div>
   );
