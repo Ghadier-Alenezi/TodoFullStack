@@ -56,4 +56,19 @@ const deleteTask = (req, res) => {
   }
 };
 
-module.exports = { getAllTasks, getTaskById, updateTask, deleteTask };
+const addTask = (req, res) => {
+  // try {
+  //   const newTask = {
+  //     id: todos.length + 1,
+  //     name: "code",
+  //     isCompleted: false,
+  //     isDeleted: false,
+  //   };
+  //   todos.push(newTask);
+  //   res.status(200).json(todos);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+};
+
+module.exports = { getAllTasks, getTaskById, updateTask, deleteTask, addTask };

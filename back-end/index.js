@@ -31,7 +31,8 @@ app.put("/todo/:id", todosRouter);
 // delete a task
 app.delete("/todo/:id", todosRouter);
 
-
+// add a task
+app.post("todos", todosRouter)
 
 app.listen(PORT, () => {
   console.log(`Server on ${PORT}`);
