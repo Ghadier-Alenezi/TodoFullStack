@@ -1,6 +1,12 @@
 const express = require("express");
 const todosRouter = express.Router();
 
+let todos = [
+  { id: 1, name: "code", isCompleted: false, isDeleted: false },
+  { id: 2, name: "sleep", isCompleted: false, isDeleted: false },
+  { id: 3, name: "wake up", isCompleted: false, isDeleted: true },
+];
+
 const getAllTasks = (req, res) => {
   try {
     res.status(200).json(todos);
@@ -36,4 +42,18 @@ const updateTask = (req, res) => {
   }
 };
 
-module.exports = { getAllTasks, getTaskById, updateTask };
+const deleteTask = (req, res) => {
+  try {
+    const { id } = req.params;
+    todos.forEach((element) => {
+      if (element.id == id) {
+        element.isDeleted = true;
+      }
+    });
+    res.status(200).json(todos);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { getAllTasks, getTaskById, updateTask, deleteTask };
