@@ -59,6 +59,21 @@ app.get("/todo", (req, res) => {
   }
 });
 
+// update a task
+app.put("/todo/:id", (req, res) => {
+  try {
+    const { id } = req.params;
+    todos.forEach((element) => {
+      if (element.id == id) {
+        element.isCompleted = true;
+      }
+    });
+    res.status(200).json(todos);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server on ${PORT}`);
 });
