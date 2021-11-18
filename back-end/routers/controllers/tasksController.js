@@ -1,3 +1,4 @@
+const express = require("express");
 const todosRouter = express.Router();
 
 const getAllTasks = (req, res) => {
@@ -8,4 +9,19 @@ const getAllTasks = (req, res) => {
   }
 };
 
-module.exports = {getAllTasks};
+const getTaskById = (req, res) => {
+  try {
+    const { id } = req.params;
+    todos.find((elem) => {
+      if (elem.id == id) {
+        res.status(200).json(elem);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+module.exports = {getAllTasks, getTaskById};
